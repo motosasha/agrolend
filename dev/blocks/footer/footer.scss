@@ -38,7 +38,7 @@
 	}
 	&__grid-item {
 		@media (min-width: $screen-md) {
-			height: 100%;
+			height: 496px;
 		}
 		&:nth-child(1) {
 			grid-area: info;

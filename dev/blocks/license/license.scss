@@ -75,7 +75,7 @@
 			max-width: none;
 		}
 		&::before {
-			background: url("/img/icon__zoom.png") center no-repeat, rgba(30,61,104,0);
+			background: url("../img/icon__zoom.png") center no-repeat, rgba(30,61,104,0);
 			content: '';
 			display: block;
 			height: 100%;
@@ -84,7 +84,7 @@
 			width: 100%;
 		}
 		&:hover::before {
-			background: url("/img/icon__zoom.png") center no-repeat, rgba(30,61,104,.05);
+			background: url("../img/icon__zoom.png") center no-repeat, rgba(30,61,104,.05);
 		}
 	}
 	&__img {

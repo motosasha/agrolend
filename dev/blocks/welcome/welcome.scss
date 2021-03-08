@@ -1,0 +1,73 @@
+// В этом файле должны быть стили для БЭМ-блока welcome, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.welcome {
+	//margin: 0;
+	padding: 144px 0 48px;
+	@media (min-width: $screen-sm) {
+		padding: 200px 0 64px;
+	}
+	@media (min-width: $screen-lg) {
+		padding: 260px 0 100px;
+	}
+	@media (min-width: $screen-xl) {
+		padding: 272px 0 164px;
+	}
+	&__inner {
+		position: relative;
+	}
+	&__img {
+		display: none;
+		left: 50%;
+		height: 1073px;
+		mask-image: url(../img/img__welcome-mask.svg);
+-webkit-mask-image: url(../img/img__welcome-mask.svg);
+		object-fit: cover;
+		position: absolute;
+		top: 0;
+		transform: translate(64px, -260px);
+		width: 1151px;
+		z-index: 2;
+		@media (min-width: $screen-lg) {
+			display: block;
+		}
+		@media (min-width: $screen-xl) {
+			transform: translate(-96px, -272px);
+		}
+	}
+	&__info {
+		position: relative;
+		z-index: 2;
+	}
+	&__title {
+		color: $typography-primary;
+		font-family: $font-family-heading;
+		font-size: 32px;
+		font-weight: 500;
+		letter-spacing: 0.01em;
+		line-height: 116%;
+		margin: 0;
+		@media (min-width: $screen-md) {
+			font-size: 52px;
+			max-width: 640px;
+		}
+		span {
+			color: $color-accent;
+			font-weight: 700;
+		}
+	}
+	&__descr {
+		color: rgba(50, 52, 65, 0.55);
+		font-size: 18px;
+		line-height: 145%;
+		margin: 24px 0;
+		max-width: 480px;
+		@media (min-width: $screen-md) {
+			margin: 32px 0;
+		}
+	}
+	&__button {
+		width: 236px;
+	}
+}

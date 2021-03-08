@@ -1,0 +1,66 @@
+// В этом файле должны быть стили для БЭМ-блока consulting, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.consulting {
+	background: linear-gradient(to top, $bg-primary 0, $bg-secondary 100%);
+	&__tiles {
+		display: grid;
+		grid-gap: 8px;
+		margin-top: 24px;
+		@media (min-width: $screen-md) {
+			grid-gap: 16px;
+			margin-top: 48px;
+		}
+		@media (min-width: $screen-lg) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+	&__tile {
+		border-radius: 12px;
+		box-shadow: 0 9px 21px #dfe9eb;
+		height: 120px;
+		padding: 24px;
+		position: relative;
+		@media (min-width: $screen-md) {
+			border-radius: 20px;
+			height: 160px;
+			padding: 32px;
+		}
+		@media (min-width: $screen-lg) {
+			height: 240px;
+		}
+		&:nth-child(1) {
+			background: linear-gradient(112deg, rgba(102, 159, 224, 0) 0%, #669fe0 100%), #3a7ad3;
+		}
+		&:nth-child(2) {
+			background: linear-gradient(112deg, rgba(136, 206, 255, 0) 0%, #88ceff 100%), #669fe0;
+		}
+		&:nth-child(3) {
+			background: linear-gradient(112deg, rgba(193, 224, 245, 0) 0%, #c1e0f5 100%), #88ceff;
+		}
+	}
+	&__title {
+		color: $color-white;
+		font-family: $font-family-heading;
+		font-size: 24px;
+		line-height: 110%;
+		max-width: 50%;
+		@media (min-width: $screen-sm) {
+			font-size: 32px;
+		}
+	}
+	&__icon {
+		bottom: 16px;
+		height: 80px;
+		position: absolute;
+		right: 16px;
+		width: 80px;
+		@media (min-width: $screen-md) {
+			bottom: 24px;
+			height: 120px;
+			right: 24px;
+			width: 120px;
+		}
+	}
+}

@@ -1,0 +1,75 @@
+// В этом файле должны быть стили для БЭМ-блока nav, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.nav {
+	display: flex;
+	@media (min-width: $screen-md) {
+		height: 19px;
+	}
+	&_sidenav {
+		display: grid;
+		grid-gap: 28px;
+		margin-left: 4px;
+	}
+	&__inner {
+		padding: 8px 0 0 16px;
+		@media (min-width: $screen-md) {
+			display: none;
+			padding: 8px 0 0;
+			.nav__item:hover & {
+				display: block;
+			}
+		}
+	}
+	&__item {
+		position: relative;
+		& + & {
+			margin-left: 32px;
+		}
+	}
+	&__inner &__item + &__item {
+		margin-left: 0;
+	}
+	&_sidenav &__item {
+		margin-left: 0;
+	}
+	& > &__item > &__link:not(a) {
+		cursor: default;
+	}
+	&__link {
+		align-items: center;
+		color: $typography-primary;
+		display: flex;
+		@include header-nav;
+		transition: opacity .25s ease;
+		&:hover {
+			opacity: .64;
+		}
+		@media (min-width: $screen-md) {
+			white-space: nowrap;
+		}
+	}
+	&_sidenav &__link {
+		display: block;
+		font-size: 18px;
+	}
+	&__trigger {
+		align-items: center;
+		border-radius: 2px;
+		cursor: pointer;
+		display: none;
+		justify-content: center;
+		height: 19px;
+		margin: 0 0 0 4px;
+		width: 16px;
+		@media (min-width: $screen-md) {
+			display: flex;
+		}
+	}
+	&__icon {
+		fill: #fff;
+		height: 16px;
+		width: 16px;
+	}
+}

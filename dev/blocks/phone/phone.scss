@@ -1,0 +1,86 @@
+// В этом файле должны быть стили для БЭМ-блока phone-drop, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.phone {
+	align-items: center;
+	color: $typography-primary;
+	display: flex;
+	text-decoration: none;
+	user-select: none;
+	width: 230px;
+	&:hover .phone__img  {
+		animation: 1200ms ease 0s normal none 1 running shake;
+	}
+	&__img {
+		align-items: center;
+		background: linear-gradient(180deg, rgba(30, 61, 104, 0) 0%, rgba(30, 61, 104, 0.25) 100%), #3a7ad3;
+		border-radius: 50%;
+		display: flex;
+		flex: 0 0 auto;
+		justify-content: center;
+		height: 40px;
+		margin-right: 12px;
+		width: 40px;
+	}
+	&__icon {
+		fill: #fff;
+		height: 20px;
+		width: 20px;
+	}
+	&__inner {}
+	&__number {
+		color: inherit;
+		font-size: 25px;
+		font-weight: 900;
+		line-height: 100%;
+		opacity: .75;
+		transition: opacity .25s ease;
+		white-space: nowrap;
+	}
+	&:hover &__number {
+		opacity: 1;
+	}
+	&__descr {
+		color: inherit;
+		font-size: 14px;
+		letter-spacing: 0.0125em;
+		line-height: 100%;
+		margin-top: 1px;
+	}
+	@keyframes shake {
+		0% {
+			transform: rotateZ(0deg);
+		}
+		10% {
+			transform: rotateZ(-30deg);
+		}
+		20% {
+			transform: rotateZ(15deg);
+		}
+		30% {
+			transform: rotateZ(-10deg);
+		}
+		40% {
+			transform: rotateZ(7.5deg);
+		}
+		50% {
+			transform: rotateZ(-6deg);
+		}
+		60% {
+			transform: rotateZ(5deg);
+		}
+		70% {
+			transform: rotateZ(-4.28571deg);
+		}
+		80% {
+			transform: rotateZ(3.75deg);
+		}
+		90% {
+			transform: rotateZ(-3.33333deg);
+		}
+		100% {
+			transform: rotateZ(0deg);
+		}
+	}
+}

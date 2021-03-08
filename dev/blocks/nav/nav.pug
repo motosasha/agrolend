@@ -1,0 +1,23 @@
+//- Все примеси в этом файле должны начинаться c имени блока (nav)
+
+mixin nav(isSide)
+	.nav(class= isSide ? 'nav_sidenav' : '')
+		.nav__item
+			a.nav__link(href='#production') Продукция
+		.nav__item
+			a.nav__link(href='#audit') Аудит
+		.nav__item
+			a.nav__link(href='#faq') Вопрос-Ответ
+		.nav__item
+			a.nav__link(href='#contacts') Контакты
+
+mixin navSide
+	.nav.nav_sidenav
+		.nav__item
+			a.nav__link(href='#production') Продукция
+		.nav__item
+			a.nav__link(href='#audit') Аудит
+		.nav__item
+			a.nav__link(href='#faq') Вопрос-Ответ
+		.nav__item
+			a.nav__link(href='#contacts') Контакты

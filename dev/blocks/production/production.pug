@@ -1,0 +1,18 @@
+//- Все примеси в этом файле должны начинаться c имени блока (production)
+
+mixin productionSlider(type, slides)
+	.swiper-container.production__slider(class='production__slider_' + type)
+		.swiper-wrapper.production__wrapper
+			each slide in slides
+				.swiper-slide.production__slide
+					.prod-tile
+						.prod-tile__img
+							img(src='img/product-good.jpg' alt='')
+						.prod-tile__title!= slide.title
+						.prod-tile__descr!= slide.descr
+	.production__slider-button.production__slider-button_prev(class='production__slider-button_' + type)
+		svg.production__slider-icon.svg
+			use(xlink:href='img/svgSprite.svg#icon__arrow_left')
+	.production__slider-button.production__slider-button_next(class='production__slider-button_' + type)
+		svg.production__slider-icon.svg
+			use(xlink:href='img/svgSprite.svg#icon__arrow_right')

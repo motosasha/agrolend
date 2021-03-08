@@ -1,0 +1,98 @@
+//- Все примеси в этом файле должны начинаться c имени блока (popup)
+
+mixin popup-call()
+	#popup-callback.popup.zoom-anim-dialog.mfp-hide
+		.popup__inner
+			.popup__close.mfp-close
+				svg.popup__icon.svg
+					use(xlink:href='img/svgSprite.svg#icon__cross')
+			.popup__title Заказать звонок
+			.popup__descr Вы можете заказать звонок на Ваш телефон через данную форму. Укажите в соответствующих полях Ваши контактные данные и наш сотрудник перезвонит Вам.
+			form.form.popup__form
+				.form__grid
+					+field('Ваше имя:', 'Укажите ваше имя', '', 'Текст ошибки', 'form__field')
+					+field_phone('Номер телефона:', '+7 (___) ___-__-__', '', 'Текст ошибки', 'form__field')
+					+field_mail('Ваш email:', 'Укажите ваш email', '', 'Текст ошибки', 'form__field')
+					+field_select('Время для звонка', '')
+					+field_textarea('Ваш комментарий:', 'Напишите что-нибудь', 'Текст ошибки', 'form__field')
+				+checkbox(true, true, 'Нажимая на кнопку «Отправить» Вы даёте согласие на обработку своих персональных данных в соответствии со статьей 9 Федерального закона от 27 июля 2006 г. № 152-ФЗ «О персональных данных»')
+				.form__error Ошибка формы
+				button.form__button.button.button_large Отправить
+
+mixin popup-price()
+	#popup-price.popup.zoom-anim-dialog.mfp-hide
+		.popup__inner
+			.popup__close.mfp-close
+				svg.popup__icon.svg
+					use(xlink:href='img/svgSprite.svg#icon__cross')
+			.popup__title Получить прайс-лист продукции
+			//-.popup__descr Какой-то текст
+			form.form.popup__form
+				.form__grid
+					+field('Ваше имя:', 'Укажите ваше имя', '', 'Текст ошибки', 'form__field')
+					+field_phone('Номер телефона:', '+7', '', 'Текст ошибки', 'form__field')
+					+field_mail('Ваш email:', 'Укажите ваш email', '', 'Текст ошибки', 'form__field')
+				+checkbox(true, true, 'Нажимая на кнопку «Отправить» Вы даёте согласие на обработку своих персональных данных в соответствии со статьей 9 Федерального закона от 27 июля 2006 г. № 152-ФЗ «О персональных данных»')
+				.form__error Ошибка формы
+				button.form__button.button.button_large Отправить
+
+mixin popup-audit()
+	#popup-audit.popup.zoom-anim-dialog.mfp-hide
+		.popup__inner
+			.popup__close.mfp-close
+				svg.popup__icon.svg
+					use(xlink:href='img/svgSprite.svg#icon__cross')
+			.popup__title Получить аудит
+			//-.popup__descr Какой-то текст
+			form.form.popup__form
+				.form__grid
+					+field('Ваше имя:', 'Укажите ваше имя', '', 'Текст ошибки', 'form__field')
+					+field_phone('Номер телефона:', '+7 (___) ___-__-__', '', 'Текст ошибки', 'form__field')
+					+field_mail('Ваш email:', 'Укажите ваш email', '', 'Текст ошибки', 'form__field')
+				+checkbox(true, true, 'Нажимая на кнопку «Отправить» Вы даёте согласие на обработку своих персональных данных в соответствии со статьей 9 Федерального закона от 27 июля 2006 г. № 152-ФЗ «О персональных данных»')
+				.form__error Ошибка формы
+				button.form__button.button.button_large Отправить
+
+mixin popup-lab()
+	#popup-lab.popup.zoom-anim-dialog.mfp-hide
+		.popup__inner
+			.popup__close.mfp-close
+				svg.popup__icon.svg
+					use(xlink:href='img/svgSprite.svg#icon__cross')
+			.popup__title Заказать исследование
+			form.form.popup__form
+				.form__grid
+					+field('Ваше имя:', 'Укажите ваше имя', '', 'Текст ошибки', 'form__field')
+					+field_phone('Номер телефона:', '+7 (___) ___-__-__', '', 'Текст ошибки', 'form__field')
+					+field_mail('Ваш email:', 'Укажите ваш email', '', 'Текст ошибки', 'form__field')
+					+field_textarea('Ваш комментарий:', 'Напишите что-нибудь', 'Текст ошибки', 'form__field')
+				+checkbox(true, true, 'Нажимая на кнопку «Отправить» Вы даёте согласие на обработку своих персональных данных в соответствии со статьей 9 Федерального закона от 27 июля 2006 г. № 152-ФЗ «О персональных данных»')
+				.form__error Ошибка формы
+				button.form__button.button.button_large Отправить
+
+mixin popup-request()
+	#popup-request.popup.zoom-anim-dialog.mfp-hide
+		.popup__inner
+			.popup__close.mfp-close
+				svg.popup__icon.svg
+					use(xlink:href='img/svgSprite.svg#icon__cross')
+			.popup__title Оставить заявку
+			//-.popup__descr Какой-то текст
+			form.form.popup__form
+				.form__grid
+					+field('Ваше имя:', 'Укажите ваше имя', '', 'Текст ошибки', 'form__field')
+					+field_phone('Номер телефона:', '+7', '', 'Текст ошибки', 'form__field')
+					+field_mail('Ваш email:', 'Укажите ваш email', '', 'Текст ошибки', 'form__field')
+					+field_textarea('Ваш комментарий:', 'Напишите что-нибудь', 'Текст ошибки', 'form__field')
+				+checkbox(true, true, 'Нажимая на кнопку «Отправить» Вы даёте согласие на обработку своих персональных данных в соответствии со статьей 9 Федерального закона от 27 июля 2006 г. № 152-ФЗ «О персональных данных»')
+				.form__error Ошибка формы
+				button.form__button.button.button_large Отправить
+
+mixin popup-thanx()
+	#popup-thanx.popup.popup_thanx.zoom-anim-dialog.mfp-hide
+		.popup__inner
+			.popup__close.mfp-close
+				svg.popup__icon.svg
+					use(xlink:href='img/svgSprite.svg#icon__cross')
+			.popup__title Спасибо!
+			.popup__descr Мы получили ваш запрос и в ближайшее время свяжемся с вами.

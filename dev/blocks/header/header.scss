@@ -1,0 +1,136 @@
+// В этом файле должны быть стили для БЭМ-блока header, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.header {
+	background: linear-gradient(to top, rgba($color-white, 0) 0, rgba($color-white, 1) 50%);
+	background-size: 100% 200%;
+	background-position: 0 bottom;
+	transition: all .5s ease;
+	position: relative;
+	z-index: 2;
+	.page__header_bg & {
+		background: linear-gradient(to top, rgba($color-white, 0) 0, rgba($color-white, 1) 50%);
+		background-size: 100% 100%;
+		background-position: 0 center;
+	}
+	@media (min-width: $screen-md) {
+	}
+	@media (min-width: $screen-lg) {
+		.page__header_bg & {
+			background: linear-gradient(to top, rgba($color-white, 0) 0, $color-white 25%);
+			background-size: 100% 100%;
+			background-position: 0 center;
+		}
+	}
+	@media (min-width: $screen-xl) {
+		.page__header_bg & {
+			background: linear-gradient(to top, rgba($color-white, 0) 0, $color-white 50%);
+			background-size: 100% 100%;
+			background-position: 0 center;
+		}
+	}
+	&__inner {
+		display: none;
+		padding: 20px 0;
+		@media (min-width: $screen-md) {
+			align-items: center;
+			display: grid;
+			grid-gap: 24px 32px;
+			grid-template-columns: 1fr 248px 175px;
+			grid-template-areas:
+				'logo phone button'
+				'nav nav nav';
+			padding: 28px 0;
+		}
+		@media (min-width: $screen-xl) {
+			grid-gap: 0;
+			grid-template-columns: 206px auto 278px 175px;
+			grid-template-areas:
+				'logo nav phone button';
+		}
+		&_mobile {
+			display: flex;
+			justify-content: space-between;
+			@media (min-width: $screen-md) {
+				display: none;
+			}
+		}
+	}
+	&__logo {
+		grid-area: logo;
+		flex: 0 0 auto;
+		height: 48px;
+		width: 88px;
+		@media (min-width: $screen-md) {
+			height: 64px;
+			width: 118px;
+		}
+		svg {
+			fill: $typography-primary;
+			height: 100%;
+			width: 100%;
+		}
+	}
+	&__menu {
+		cursor: pointer;
+		display: flex;
+		height: 32px;
+		text-align: center;
+		text-decoration: none;
+		transition: transform .25s ease;
+		width: 32px;
+		will-change: transform;
+	}
+	&__menu-icon {
+		background: $typography-primary;
+		border-radius: 1px;
+		display: block;
+		height: 2px;
+		margin: auto;
+		position: relative;
+		width: 20px;
+		&::after,
+		&::before {
+			background: $typography-primary;
+			border-radius: 1px;
+			content: '';
+			display: block;
+			height: 2px;
+			position: absolute;
+			transition: transform .25s ease;
+			width: 20px;
+			will-change: transform;
+		}
+		&::after {
+			transform: translateY(5px) rotate(0);
+		}
+		&::before {
+			transform: translateY(-5px) rotate(0);
+		}
+	}
+	&__call {
+		align-items: center;
+		cursor: pointer;
+		display: flex;
+		justify-content: center;
+		height: 32px;
+		width: 32px;
+	}
+	&__icon {
+		fill: $typography-primary;
+		height: 24px;
+		width: 24px;
+	}
+	&__nav {
+		grid-area: nav;
+	}
+	&__phone {
+		grid-area: phone;
+		position: relative;
+	}
+	&__button {
+		box-shadow: none;
+		grid-area: button;
+	}
+}

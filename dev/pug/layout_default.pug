@@ -1,0 +1,109 @@
+//- Стандартный шаблон страницы
+- var isDeploy = false
+
+if isDeploy === true
+	- var pageAddress = '/agrolend'
+else
+	- var pageAddress = ''
+
+include mixins.pug
+
+doctype html
+html(class='no-js', lang='ru-RU')
+	head
+		if isDeploy === true
+			base(href='https://motosasha.github.io/agrolend/')
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=3, minimum-scale=0.1')
+		meta(http-equiv='X-UA-Compatible', content='ie=edge')
+		meta(name='format-detection', content='telephone=no')
+		meta(name='format-detection', content='date=no')
+		meta(name='format-detection', content='address=no')
+		meta(name='format-detection', content='email=no')
+		meta(name='google', content='notranslate')
+		meta(name='HandheldFriendly' content='true')
+		meta(name='robots', content='index, follow')
+		meta(name='theme-color', content='#4671a2')
+
+		link(rel="apple-touch-icon", sizes="57x57", href="img/favicon/apple-icon-57x57.png")
+		link(rel="apple-touch-icon", sizes="60x60", href="img/favicon/apple-icon-60x60.png")
+		link(rel="apple-touch-icon", sizes="72x72", href="img/favicon/apple-icon-72x72.png")
+		link(rel="apple-touch-icon", sizes="76x76", href="img/favicon/apple-icon-76x76.png")
+		link(rel="apple-touch-icon", sizes="114x114", href="img/favicon/apple-icon-114x114.png")
+		link(rel="apple-touch-icon", sizes="120x120", href="img/favicon/apple-icon-120x120.png")
+		link(rel="apple-touch-icon", sizes="144x144", href="img/favicon/apple-icon-144x144.png")
+		link(rel="apple-touch-icon", sizes="152x152", href="img/favicon/apple-icon-152x152.png")
+		link(el="apple-touch-icon", sizes="180x180", href="img/favicon/apple-icon-180x180.png")
+		link(rel="icon", type="image/png", sizes="228x228", href="img/favicon/favicon-228x228.png")
+		link(rel="icon", type="image/png", sizes="32x32", href="img/favicon/favicon-32x32.png")
+		link(rel="icon", type="image/png", sizes="96x96", href="img/favicon/favicon-96x96.png")
+		link(rel="icon", type="image/png", sizes="16x16", href="img/favicon/favicon-16x16.png")
+		link(rel="manifest", href="img/favicon/manifest.json")
+		meta(name="msapplication-TileColor", content="#ffffff")
+		meta(name="msapplication-TileImage", content="img/favicon/ms-icon-144x144.png")
+		meta(name="theme-color", content="#ffffff")
+
+		link(href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;900&display=swap" rel="stylesheet")
+		link(href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;700&display=swap" rel="stylesheet")
+
+		block meta
+			title АгроСтар — Продажа кормов для сельскохоз животных
+			meta(name='description', content='')
+			meta(name='keywords', content='')
+
+		block head
+			link(rel="stylesheet" href="css/style.css")
+
+	body
+		noscript У вас отключен JavaScript. Это пугает.
+
+		.page
+			.page__nav
+				include layout__part_nav.pug
+			.page__header
+				.header
+					.grid
+						.grid__row
+							.grid__col
+								.header__inner.header__inner_mobile
+									a.header__menu.js-menu-trigger
+										span.header__menu-icon
+									.header__logo
+										svg.svg
+											use(xlink:href='img/svgSprite.svg#logo_as_new')
+									a.header__call(href='tel:88006009055')
+										svg.header__icon.svg
+											use(xlink:href='img/svgSprite.svg#icon__phone')
+								.header__inner
+									.header__logo
+										svg.svg
+											use(xlink:href='img/svgSprite.svg#logo_as_new')
+									.header__nav
+										+nav
+									.header__phone
+										a.phone(href='tel:88006009055')
+											.phone__img
+												svg.phone__icon.svg
+													use(xlink:href='img/svgSprite.svg#icon__phone')
+											.phone__inner
+												.phone__number 8 800 600 9055
+												.phone__descr Бесплатный звонок по РФ
+									a.header__button.button.js-popup(href='#popup-callback') Заказать звонок
+			.page__main
+				block pageMain
+					.fake-content fake-content
+			.page__footer
+				include layout__part_footer.pug
+			.page__darker
+			a.js-popup(href='#popup-thanx' hidden) Спасибо
+	+popup-call
+	+popup-audit
+	+popup-lab
+	+popup-price
+	+popup-request
+	+popup-thanx
+	block templates
+
+	script(src='js/main.js')
+
+	block scripts

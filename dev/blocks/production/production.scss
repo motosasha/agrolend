@@ -1,0 +1,159 @@
+// В этом файле должны быть стили для БЭМ-блока production, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.production {
+	&__inner {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	&__tabs {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		margin: 24px 0 0;
+		@media (min-width: $screen-sm) {
+			margin: 40px 0 0;
+		}
+	}
+	&__caption {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 24px;
+		@media (min-width: $screen-sm) {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: center;
+			margin-bottom: 48px;
+			width: 100%;
+		}
+	}
+	&__caption-item {
+		align-items: center;
+		background: $color-white;
+		border: 2px solid transparent;
+		border-radius: 48px;
+		box-shadow: 0 9px 21px #dfe9eb;
+		color: $typography-primary;
+		cursor: pointer;
+		display: flex;
+		font-size: 15px;
+		letter-spacing: 0.01em;
+		line-height: 112%;
+		margin: 4px;
+		padding: 4px 16px 4px 4px;
+		position: relative;
+		outline: none;
+		text-align: left;
+		transition: .25s ease;
+		white-space: nowrap;
+		@media (min-width: $screen-sm) {
+			font-size: 16px;
+		}
+		&_active {
+			border: 2px solid #3a7ad3;
+		}
+		&:hover {
+			box-shadow: 0 12px 32px #d0d6d7;
+		}
+		@media (min-width: $screen-lg) {
+			margin: 0;
+			& + & {
+				margin-left: 20px;
+			}
+			&:hover {
+				box-shadow: 0 12px 32px #d0d6d7;
+				transform: translateY(-2px);
+			}
+		}
+	}
+	&__caption-icon {
+		height: 32px;
+		margin-right: 8px;
+		width: 32px;
+	}
+	&__tabcontents {
+		width: 100%;
+	}
+	&__tabcontent {
+		animation: fadeEffect 0.6s ease;
+		display: none;
+		position: relative;
+		&_active {
+			display: block;
+			transition: all 1s ease;
+		}
+	}
+	&__slider {
+		margin: 0 -16px;
+		padding: 0 24px 40px;
+		@media (min-width: $screen-sm) {
+			margin: 0 auto;
+			padding: 0 24px 56px;
+			width: calc(100% - 160px);
+		}
+	}
+	&__wrapper {}
+	&__slide {
+		height: auto;
+	}
+	&__slider-button {
+		align-items: center;
+		background: $color-white;
+		box-shadow: 0 9px 21px #dfe9eb;
+		border-radius: 32px;
+		cursor: pointer;
+		display: none;
+		justify-content: center;
+		height: 64px;
+		outline: none;
+		position: absolute;
+		top: calc(50% - 56px);
+		transform: translateY(-50%);
+		transition: all .25s ease;
+		width: 64px;
+		z-index: 2;
+		@media (min-width: $screen-sm) {
+			display: flex;
+		}
+		&:hover {
+			box-shadow: 0 12px 32px #d0d6d7;
+		}
+		&_next {
+			right: 0;
+		}
+		&_prev {
+			left: 0;
+		}
+		&[aria-disabled='true'] {
+			opacity: .25;
+			pointer-events: none;
+		}
+	}
+	&__slider-icon {
+		height: 20px;
+		width: 20px;
+	}
+	&__button {
+		align-self: center;
+		@media (min-width: $screen-sm) {
+			display: block;
+			margin: 0 auto;
+			width: 386px;
+		}
+	}
+}
+
+@keyframes fadeEffect {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}

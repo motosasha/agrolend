@@ -1,0 +1,11 @@
+// В этом файле должны быть стили для БЭМ-блока advantages, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.advantages {
+	background: $bg-secondary;
+	.section__title {
+		max-width: 712px;
+		text-align: left;
+	}
+}

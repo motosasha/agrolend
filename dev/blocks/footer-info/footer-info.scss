@@ -1,0 +1,59 @@
+// В этом файле должны быть стили для БЭМ-блока footer-info, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.footer-info {
+	padding: 56px 0 64px;
+	position: relative;
+	z-index: 2;
+	@media (min-width: $screen-sm) {
+		width: 536px;
+	}
+	@media (min-width: $screen-md) {
+		width: auto;
+	}
+	&__title {
+		font-family: $font-family-heading;
+		font-size: 32px;
+		line-height: 100%;
+		letter-spacing: 0.01em;
+		margin-bottom: 32px;
+	}
+	&__item {
+		display: flex;
+		& + & {
+			margin-top: 24px;
+		}
+	}
+	&__icon {
+		flex: 0 0 auto;
+		height: 32px;
+		width: 32px;
+	}
+	&__inner {
+		align-items: flex-start;
+		display: flex;
+		flex-direction: column;
+		margin-left: 16px;
+		padding-top: 8px;
+	}
+	&__subtitle {
+		color: rgba($typography-primary, 0.5);
+		font-size: 14px;
+		line-height: 115%;
+	}
+	&__descr {
+		font-size: 20px;
+		line-height: 120%;
+		@at-root {
+			a#{&} {
+				color: $typography-primary;
+				text-decoration: none;
+				transition: opacity .25s ease;
+				&:hover {
+					opacity: .64;
+				}
+			}
+		}
+	}
+}

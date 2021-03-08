@@ -1,0 +1,66 @@
+// В этом файле должны быть стили для БЭМ-блока points, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.points {
+	display: grid;
+	grid-gap: 24px;
+	grid-template-columns: 88px auto;
+	margin-top: 32px;
+	@media (min-width: 375px) {
+		grid-template-columns: 1fr 1fr;
+	}
+	@media (min-width: 400px) {
+		grid-gap: 16px 24px;
+		grid-template-columns: 88px auto auto;
+	}
+	@media (min-width: $screen-sm) {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	@media (min-width: $screen-md) {
+		grid-gap: 16px;
+		grid-template-columns: repeat(5, 1fr);
+		margin-top: 40px;
+	}
+	@media (min-width: $screen-lg) {
+		grid-gap: 0;
+		grid-template-columns: repeat(5, 1fr);
+		margin-left: -56px;
+	}
+	@media (min-width: $screen-xl) {
+		grid-gap: 0;
+		grid-template-columns: repeat(5, 248px);
+		margin-left: -80px;
+	}
+	&__item {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+	}
+	&__tile {
+		align-items: center;
+		background: #fff;
+		box-shadow: 0 9px 21px #dfe9eb;
+		border-radius: 20px;
+		display: flex;
+		justify-content: center;
+		height: 86px;
+		transition: all .25s ease;
+		width: 86px;
+	}
+	&__item:hover &__tile {
+		box-shadow: 0 12px 32px #d0d6d7;
+		transform: translateY(-2px);
+	}
+	&__icon {
+		fill: #323441;
+		height: 57px;
+		width: 57px;
+	}
+	&__title {
+		color: $typography-primary;
+		cursor: default;
+		@include point-title;
+		margin: 18px 0 0;
+	}
+}

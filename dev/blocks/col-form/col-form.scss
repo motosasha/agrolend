@@ -1,0 +1,31 @@
+// В этом файле должны быть стили для БЭМ-блока col-form, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.col-form {
+	background: $bg-secondary;
+	border-radius: 16px;
+	margin-top: 32px;
+	padding: 24px;
+	@media (min-width: $screen-sm) {}
+	@media (min-width: $screen-md) {
+		border-radius: 32px;
+		padding: 40px 48px 48px;
+	}
+	@media (min-width: $screen-lg) {
+		margin-top: 0;
+	}
+	&__title {
+		font-family: $font-family-heading;
+		font-size: 28px;
+		font-weight: 500;
+		letter-spacing: 0.01em;
+		line-height: 115%;
+	}
+	&__subtitle {
+		color: rgba($typography-primary, 0.75);
+		font-size: 16px;
+		line-height: 100%;
+		margin: 16px 0 32px;
+	}
+}

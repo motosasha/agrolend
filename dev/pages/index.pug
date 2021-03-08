@@ -1,0 +1,315 @@
+extends ../pug/layout_default.pug
+
+block pageMain
+	section.welcome
+		.grid.welcome__inner
+			.grid__row
+				.grid__col
+					img.welcome__img(src='img/bg__welcome.jpg' alt='')
+					.welcome__info
+						h1.welcome__title Проведём <span>бесплатный</span> аудит хозяйства и поможем <span>увеличить</span> надои по всей РФ
+						.welcome__descr Оставьте заявку прямо сейчас на бесплатный аудит
+						a.welcome__button.button.button_large.js-popup(href='#popup-audit') Получить аудит
+	section.section.advantages
+		.grid
+			.grid__row
+				.grid__col
+					h2.section__title <strong>Агростар</strong> — ведущий производитель кормов и кормовых решений!
+					+points(
+						[
+							{icon: '14', title: '14 лет<br>на рынке'},
+							{icon: 'like', title: 'Высокое качество<br>производимой продукции'},
+							{icon: 'box', title: 'Собственное<br>производство'},
+							{icon: 'achievement', title: 'Высокий уровень<br>специалистов'},
+							{icon: 'lab', title: 'Собственная<br>лаборатория'}
+						]
+					)
+	section.section.video
+		.grid
+			.grid__row
+				.grid__col
+					h2.section__title Передовые технологии в области кормления
+					.video__clip
+						video(controls='controls' poster='img/img__video-cover.jpg')
+							source(src='video/video.mp4' type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"')
+							| Тег video не поддерживается вашим браузером.
+							a(href='video/video.mp4') Скачайте видео
+							| .
+	section.section.research
+		.grid
+			.grid__row
+				.grid__col
+					h2.section__title Мы проводим лабораторные исследования
+					.research__inner
+						.research__items
+							.research__item
+								svg.research__icon.svg
+									use(xlink:href='img/svgSprite.svg#icon__van')
+								.research__title Выезд специалиста в хозяйство<br>и отбор проб — бесплатно
+							.research__item
+								svg.research__icon.svg
+									use(xlink:href='img/svgSprite.svg#icon__tube')
+								.research__title Отбираем пробы по технологии<br>Корнельского университета<br>и вакуумируем на месте
+							.research__item
+								svg.research__icon.svg
+									use(xlink:href='img/svgSprite.svg#icon__report')
+								.research__title Готовность результатов анализов<br>в течение 3-5 дней
+						a.research__button.button.button_large.js-popup(href='#popup-lab') Заказать исследование
+	section.section.production
+		.section__anchor#production
+		.grid
+			.grid__row
+				.grid__col
+					h2.section__title Мы производим продукцию:
+					.production__inner
+						.production__tabs
+							.production__caption
+								button.production__caption-item.production__caption-item_active(data-target='yield')
+									svg.production__caption-icon.svg
+										use(xlink:href='img/svgSprite.svg#icon__yield')
+									| Для повышения удоев
+								button.production__caption-item(data-target='health')
+									svg.production__caption-icon.svg
+										use(xlink:href='img/svgSprite.svg#icon__cow')
+									| Корма для здоровья коров
+								button.production__caption-item(data-target='calf')
+									svg.production__caption-icon.svg
+										use(xlink:href='img/svgSprite.svg#icon__feed')
+									| Корма для выращивания телят
+							.production__tabcontents
+								#yield.production__tabcontent.production__tabcontent_active
+									+productionSlider(
+										'yield',
+										[
+											{
+												'title': 'Диарвит',
+												'descr': 'витаминно-минеральный коктейль для добавления в цельное молоко'
+											},
+											{
+												'title': 'Хелпмилк',
+												'descr': 'витаминно-минеральный коктейль для добавления в цельное молоко'
+											},
+											{
+												'title': 'БМВЛ для телят АСТ/106',
+												'descr': 'витаминно-минеральный коктейль для добавления в цельное молоко'
+											},
+											{
+												'title': 'Диарвит',
+												'descr': 'витаминно-минеральный коктейль для добавления в цельное молоко'
+											},
+											{
+												'title': 'Хелпмилк',
+												'descr': 'витаминно-минеральный коктейль для добавления в цельное молоко'
+											},
+											{
+												'title': 'БМВЛ для телят АСТ/106',
+												'descr': 'витаминно-минеральный коктейль для добавления в цельное молоко'
+											}
+										]
+									)
+								#health.production__tabcontent
+									+productionSlider(
+										'health',
+										[
+											{
+												'title': 'Диарвит',
+												'descr': 'витаминно-минеральный коктейль для добавления в цельное молоко'
+											},
+											{
+												'title': 'Хелпмилк',
+												'descr': 'витаминно-минеральный коктейль для добавления в цельное молоко'
+											},
+											{
+												'title': 'БМВЛ для телят АСТ/106',
+												'descr': 'витаминно-минеральный коктейль для добавления в цельное молоко'
+											},
+											{
+												'title': 'Диарвит',
+												'descr': 'витаминно-минеральный коктейль для добавления в цельное молоко'
+											}
+										]
+									)
+								#calf.production__tabcontent
+									+productionSlider(
+										'calf',
+										[
+											{
+												'title': 'Диарвит',
+												'descr': 'витаминно-минеральный коктейль для добавления в цельное молоко'
+											},
+											{
+												'title': 'Хелпмилк',
+												'descr': 'витаминно-минеральный коктейль для добавления в цельное молоко'
+											},
+											{
+												'title': 'БМВЛ для телят АСТ/106',
+												'descr': 'витаминно-минеральный коктейль для добавления в цельное молоко'
+											},
+											{
+												'title': 'Диарвит',
+												'descr': 'витаминно-минеральный коктейль для добавления в цельное молоко'
+											}
+										]
+									)
+						a.production__button.button.button_large.js-popup(href='#popup-price') Получить прайс-лист продукции
+	section.section.consulting
+		.grid
+			.grid__row
+				.grid__col
+					h2.section__title Мы проводим консультации:
+					.consulting__tiles
+						.consulting__tile
+							.consulting__title Аудит хозяйств
+							svg.consulting__icon.svg
+								use(xlink:href='img/svgSprite.svg#icon__audit')
+						.consulting__tile
+							.consulting__title Расчет рациона
+							svg.consulting__icon.svg
+								use(xlink:href='img/svgSprite.svg#icon__diet')
+						.consulting__tile
+							.consulting__title Лабораторные исследования
+							svg.consulting__icon.svg
+								use(xlink:href='img/svgSprite.svg#icon__lab_line')
+	section.section.audit
+		.section__anchor#audit
+		.grid
+			.grid__row
+				.grid__col
+					h2.section__title Выезд специалиста в хозяйство для отбора проб
+					.audit__inner
+						.audit__step.audit__step_1
+							.audit__subtitle Шаг №1
+							.audit__title Оставьте заявку на бесплатную консультацию
+							a.audit__button.button.button_large.js-popup(href='#popup-request') Оставить заявку
+							.audit__arrow
+								svg.svg
+									use(xlink:href='img/svgSprite.svg#img__arrow_tablet')
+								svg.svg
+									use(xlink:href='img/svgSprite.svg#img__arrow_01')
+						.audit__step.audit__step_2
+							.audit__subtitle Шаг №2
+							.audit__title Обсуждаем основные проблемы и задачи
+							.audit__arrow
+								svg.svg
+									use(xlink:href='img/svgSprite.svg#img__arrow_tablet-l')
+								svg.svg
+									use(xlink:href='img/svgSprite.svg#img__arrow_02')
+						.audit__step.audit__step_3
+							.audit__subtitle Шаг №3
+							.audit__title Выезд специалиста в хозяйство для отбора проб
+							.audit__arrow
+								svg.svg
+									use(xlink:href='img/svgSprite.svg#img__arrow_tablet')
+								svg.svg
+									use(xlink:href='img/svgSprite.svg#img__arrow_03')
+						.audit__step.audit__step_4
+							.audit__subtitle Шаг №4
+							.audit__title Выезд эксперта:
+							ul.audit__list
+								li.audit__li Оценка кормов и рациона
+								li.audit__li Оценка содержания животных
+								li.audit__li Исследование навоза
+								li.audit__li Исследование крови
+							.audit__arrow
+								svg.svg
+									use(xlink:href='img/svgSprite.svg#img__arrow_tablet-l')
+								svg.svg
+									use(xlink:href='img/svgSprite.svg#img__arrow_04')
+						.audit__step.audit__step_5
+							.audit__subtitle Шаг №5
+							.audit__title Проводим исследования в собственной лаборатории
+							.audit__arrow
+								svg.svg
+									use(xlink:href='img/svgSprite.svg#img__arrow_tablet')
+								svg.svg
+									use(xlink:href='img/svgSprite.svg#img__arrow_05')
+						.audit__step.audit__step_6
+							.audit__subtitle Шаг №6
+							.audit__title Предоставление исчерпывающего отчёта по содержанию и кормлению с рекомендациями
+	section.section.section_form
+		.grid
+			.grid__row
+				.grid__col
+					h2.section__title Закажите аудит хозяйства прямо сейчас!
+					form.form
+						.form__grid.form__grid_section
+							+field('Ваше имя:', 'Укажите ваше имя', '', 'Текст ошибки', 'form__field')
+							+field_phone('Номер телефона:', '+7 (___) ___-__-__', '', 'Текст ошибки', 'form__field')
+							+field_mail('Ваш email:', 'Укажите ваш email', '', 'Текст ошибки', 'form__field')
+							+checkbox(true, true, 'Нажимая на кнопку «Отправить» Вы даёте согласие на обработку своих персональных данных в соответствии со статьей 9 Федерального закона от 27 июля 2006 г. № 152-ФЗ «О персональных данных»')
+							.form__error Ошибка формы
+							button.form__button.button Отправить
+	section.section.license
+		.grid
+			.grid__row
+				.grid__col
+					h2.section__title Лицензии и сертификаты
+					.license__inner
+						.swiper-container.license__slider
+							.swiper-wrapper.license__wrapper
+								.swiper-slide.license__slide
+									a.license__link.popup-img(href='img/img__license_l.jpg')
+										img.license__img(src='img/img__license.jpg' alt='')
+								.swiper-slide.license__slide
+									a.license__link.popup-img(href='img/img__license_l.jpg')
+										img.license__img(src='img/img__license.jpg' alt='')
+								.swiper-slide.license__slide
+									a.license__link.popup-img(href='img/img__license_l.jpg')
+										img.license__img(src='img/img__license.jpg' alt='')
+								.swiper-slide.license__slide
+									a.license__link.popup-img(href='img/img__license_l.jpg')
+										img.license__img(src='img/img__license.jpg' alt='')
+						.license__slider-button.license__slider-button_prev
+							svg.license__slider-icon.svg
+								use(xlink:href='img/svgSprite.svg#icon__arrow_left')
+						.license__slider-button.license__slider-button_next
+							svg.license__slider-icon.svg
+								use(xlink:href='img/svgSprite.svg#icon__arrow_right')
+	section.section.faq
+		.section__anchor#faq
+		.grid
+			.grid__row
+				.grid__col.grid__col_lg_7.grid__col_xl_8
+					h2.section__title Часто задаваемые вопросы
+					+faq(
+						[
+							{
+								'num': '01.',
+								'title': 'Как определиться с идеей (что производить? какую услугу предоставлять?)',
+								'info': 'Лучшие идеи для бизнес-проектов <a href="#">вырастают</a> из проблем, с которыми люди встречаются ежедневно. Если появилась идея, которой Вы загорелись, займитесь ей вне зависимости вашего опыта и ваших связей: часто взгляд человека, который давно работает в этой сфере, ограничен, поэтому самые прорывные идеи молодым бизнесменам реализовать гораздо легче, главное, чтобы это решало реально существующую проблему (удовлетворяло чью-то потребность).'
+							},
+							{
+								'num': '02.',
+								'title': 'За счет каких средств реализовывать проект (личные сбережения, инвестиции, кредит…)?',
+								'info': 'Но высокотехнологичная концепция общественного уклада создаёт предпосылки для позиций, занимаемых участниками в отношении поставленных задач.'
+							},
+							{
+								'num': '03.',
+								'title': 'Какой результат должен быть достигнут (какая проблема будет решена? на сколько полезен продукт/услуга?) Насколько значим проект?',
+								'info': 'Задача организации, в особенности же начало повседневной работы по формированию позиции создаёт предпосылки для благоприятных перспектив.'
+							},
+							{
+								'num': '04.',
+								'title': 'Насколько конкурента моя услуга (продукт)?',
+								'info': 'Не следует, однако, забывать, что семантический разбор внешних противодействий предоставляет широкие возможности для приоритизации разума над эмоциями.'
+							},
+							{
+								'num': '05.',
+								'title': 'Где искать дополнительные средства в случае их необходимости?',
+								'info': 'В своём стремлении улучшить пользовательский опыт мы упускаем, что явные признаки победы институционализации подвергнуты целой серии независимых исследований.'
+							}
+						]
+					)
+				.grid__col.grid__col_lg_5.grid__col_xl_4
+					.col-form
+						.col-form__title Не нашли ответ на свой вопрос?
+						.col-form__subtitle Задайте его нашему эксперту
+						.form
+							.form__grid
+								+field('Ваше имя:', 'Укажите ваше имя', '', 'Текст ошибки', 'form__field')
+								+field_phone('Номер телефона:', '+7 (___) ___-__-__', '', 'Текст ошибки', 'form__field')
+								+field_mail('Ваш email:', 'Укажите ваш email', '', 'Текст ошибки', 'form__field')
+								+field_textarea('Вопрос:', 'Введите ваш вопрос', 'Текст ошибки', 'form__field')
+								+checkbox(true, true, 'Нажимая на кнопку «Отправить» Вы даёте согласие на обработку своих персональных данных в соответствии со статьей 9 Федерального закона от 27 июля 2006 г. № 152-ФЗ «О персональных данных»')
+								.form__error Ошибка формы
+								button.form__button.button Задать вопрос

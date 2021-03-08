@@ -1,0 +1,90 @@
+@mixin header-nav {
+	font-size: 18px;
+	line-height: 100%;
+	text-decoration: none;
+}
+@mixin section-title {
+	font-family: $font-family-heading;
+	font-size: 24px;
+	font-weight: 400;
+	letter-spacing: 0.01em;
+	line-height: 120%;
+	margin: 0;
+	strong {
+		font-weight: 700;
+	}
+	@media (min-width: $screen-md) {
+		font-size: 36px;
+		line-height: 133%;
+	}
+}
+@mixin point-title {
+	font-size: 14px;
+	font-weight: 300;
+	line-height: 115%;
+	text-align: center;
+	@media (min-width: $screen-md) {
+		font-size: 18px;
+		line-height: 135%;
+	}
+}
+@mixin prod-grid-title {
+	font-size: 22px;
+	line-height: 110%;
+}
+@mixin prod-grid-descr {
+	font-size: 15px;
+	line-height: 135%;
+}
+@mixin field-label {
+	font-size: 16px;
+	line-height: 100%;
+}
+@mixin field {
+	font-size: 16px;
+	line-height: 100%;
+}
+@mixin field-info {
+	font-size: 14px;
+	line-height: 100%;
+}
+
+@mixin popup-title {
+	font-size: 20px;
+	line-height: 120%;
+	@media (min-width: $screen-sm) {
+		font-size: 36px;
+		text-align: center;
+	}
+}
+@mixin popup-descr {
+	font-size: 14px;
+	line-height: 120%;
+	@media (min-width: $screen-sm) {
+		font-size: 16px;
+		text-align: center;
+	}
+}
+@mixin popup-product-title {
+	font-family: $font-family-heading;
+	font-feature-settings: 'pnum' on, 'lnum' on;
+	font-size: 20px;
+	line-height: 100%;
+	@media (min-width: $screen-sm) {
+		font-size: 24px;
+	}
+}
+@mixin popup-product-descr {
+	font-size: 14px;
+	line-height: 145%;
+	@media (min-width: $screen-sm) {
+		font-size: 16px;
+	}
+}
+@mixin checkbox-label {
+	font-size: 12px;
+	line-height: 140%;
+	@media (min-width: $screen-lg) {
+		line-height: 150%;
+	}
+}

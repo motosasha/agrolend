@@ -1,0 +1,25 @@
+// В этом файле должны быть стили для БЭМ-блока textarea, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.textarea {
+	appearance: none;
+	background: #fff;
+	border: none;
+	box-shadow: 0 9px 21px #dfe9eb;
+	border-radius: 8px;
+	box-sizing: border-box;
+	@include field;
+	height: 120px;
+	outline: none;
+	padding: 16px;
+	resize: none;
+	transition: box-shadow .125s ease-in-out;
+	width: 100%;
+	&::placeholder {
+		color: rgba(0,0,0,.4);
+	}
+	&:focus {
+		box-shadow: 0 12px 32px #d0d6d7;
+	}
+}

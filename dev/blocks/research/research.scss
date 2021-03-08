@@ -1,0 +1,68 @@
+// В этом файле должны быть стили для БЭМ-блока research, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.research {
+	background: $bg-secondary;
+	&__inner {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	&__items {
+		display: grid;
+		grid-gap: 16px;
+		margin: 24px 0 48px;
+		@media (min-width: $screen-sm) {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			margin: 48px 0 56px;
+		}
+		@media (min-width: $screen-lg) {
+			display: grid;
+			grid-gap: 16px;
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+	&__item {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		@media (min-width: $screen-sm) {
+			flex: 0 0 auto;
+			width: 48%;
+		}
+		@media (min-width: $screen-lg) {
+			width: 100%;
+		}
+	}
+	&__icon {
+		height: 48px;
+		width: 48px;
+		@media (min-width: $screen-md) {
+			height: 80px;
+			width: 80px;
+		}
+	}
+	&__title {
+		font-family: $font-family-heading;
+		font-size: 14px;
+		font-weight: 500;
+		line-height: 125%;
+		margin-top: 18px;
+		text-align: center;
+		@media (min-width: $screen-md) {
+			font-size: 20px;
+			line-height: 125%;
+		}
+	}
+	&__button {
+		align-self: center;
+		@media (min-width: $screen-md) {
+			display: block;
+			margin: 0 auto;
+			width: 310px;
+		}
+	}
+}

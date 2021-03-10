@@ -45,7 +45,6 @@
 		font-family: $font-family-heading;
 		font-size: 32px;
 		font-weight: 500;
-		letter-spacing: 0.01em;
 		line-height: 116%;
 		margin: 0;
 		@media (min-width: $screen-md) {
@@ -67,7 +66,5 @@
 			margin: 32px 0;
 		}
 	}
-	&__button {
-		width: 236px;
-	}
+	&__button {}
 }
